@@ -7,11 +7,14 @@
 #include <cppunit/extensions/HelperMacros.h>
 #include <cppunit/BriefTestProgressListener.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
+#include "func.h"
 
 class Test : public CPPUNIT_NS::TestCase
 {
   CPPUNIT_TEST_SUITE(Test);
   CPPUNIT_TEST(testHelloWorld);
+  CPPUNIT_TEST(testAdd);
+  CPPUNIT_TEST(testMult);
   CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -30,6 +33,16 @@ protected:
     else{
 	    CPPUNIT_ASSERT(false);
     }
+  }
+
+  void testAdd(void){
+	  MyFunctions func;
+  	CPPUNIT_ASSERT(func.addsTwo(3,4) == 7);
+  }
+
+  void testMult(void){
+	  MyFunctions func;
+	CPPUNIT_ASSERT(func.multiply(3,4) == 12);
   }
 };
 
