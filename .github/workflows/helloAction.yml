@@ -10,13 +10,12 @@ jobs:
   build-and-test:
       runs-on: ubuntu-latest
       steps:
-      - uses: actions/checkout@v2
-        #- name: install cppunit
-        #run: sudo apt-get install libcppunit-dev
-      - name: configure
+      -uses: actions/checkout@v2
+      -name: install cppunit
+      run: sudo apt install -y libcppunit-dev
+      -name: configure
       run: ./configure
-      - name: make
+      -name: make
       run: make
-      - name: make test
+      -name: make test
       run: make test
-
