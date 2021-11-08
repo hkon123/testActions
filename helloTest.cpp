@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 #include <cppunit/TestRunner.h>
 #include <cppunit/TestResult.h>
 #include <cppunit/TestResultCollector.h>
@@ -10,7 +12,6 @@ class Test : public CPPUNIT_NS::TestCase
 {
   CPPUNIT_TEST_SUITE(Test);
   CPPUNIT_TEST(testHelloWorld);
-  CPPUNIT_TEST(failHelloWorld);
   CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -20,10 +21,15 @@ public:
 protected:
   void testHelloWorld(void) {
     system("./hello >nul 2>nul");
-  }
-
-  void failHelloWorld(void) {
-	  exit(1);
+    std::string line;
+    std::ifstream myfile ("nul");
+    if (myfile.is_open()){
+	    getline(myfile,line);
+	    CPPUNIT_ASSERT(line.compare("Hello World!") == 0);
+    }
+    else{
+	    CPPUNIT_ASSERT(false);
+    }
   }
 };
 
