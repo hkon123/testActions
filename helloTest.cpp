@@ -37,7 +37,7 @@ protected:
 
   void testAdd(void){
 	  MyFunctions func;
-  	CPPUNIT_ASSERT(func.addsTwo(3,4) == 7);
+  	CPPUNIT_ASSERT(func.addsTwo(3,4) == 8);
   }
 
   void testMult(void){
