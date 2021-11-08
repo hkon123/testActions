@@ -11,8 +11,8 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v2
-      - name: install cppunit
-      run: sudo apt-get install libcppunit-dev
+        #- name: install cppunit
+        #run: sudo apt-get install libcppunit-dev
       - name: configure
       run: ./configure
       - name: make
